@@ -33,7 +33,13 @@ class Card
   end
 
   def valid?
-    (sum % 10).zero?
+    if sum % 10 == 0
+    "The number is valid"
+    else
+    "Sorry the number is not valid"
+    end
   end
+
+
 
 end

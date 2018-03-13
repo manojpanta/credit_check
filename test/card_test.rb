@@ -1,7 +1,7 @@
 require 'minitest/autorun'
 require 'minitest/pride'
 require 'pry'
-require './lib/keep'
+require './lib/card'
 
 
 class CardTest < MiniTest::Test
@@ -43,6 +43,13 @@ class CardTest < MiniTest::Test
   def test_if_it_is_valid?
     card = Card.new("6011004936334222")
     assert_equal true, card.valid?
+  end
+
+  def test_if_it_works_for_amex
+    card = Card.new("342804633855673")
+    assert card.valid?
+    card = Card.new("342801633855673")
+    refute card.valid?
   end
 
 end
