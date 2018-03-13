@@ -47,7 +47,9 @@ class CardTest < Minitest::Test
   def test_if_it_works_for_amex
     card = Card.new("342804633855673")
     assert card.valid?
-    card = Card.new("342801633855673")
+    card1 = Card.new("342801633855673")
     assert_equal "Sorry the card number is not valid.", card.valid?
+    # refute card1.valid?
+
   end
 end
