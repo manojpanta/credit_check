@@ -15,13 +15,8 @@ class Card
   end
 
   def check(num, index)
-    # return num*2 if index.odd?
-    # return num
-    if index.odd?
-      num * 2
-    else
-      num
-    end
+    return num *2 if index.odd?
+    return num
   end
 
   def subtract
@@ -31,11 +26,8 @@ class Card
   end
 
   def check_1(num)
-    if num >= 10
-      num - 9
-    else
-      num
-    end
+    return num - 9 if num >= 10
+    return num
   end
 
   def sum
