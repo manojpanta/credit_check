@@ -1,10 +1,9 @@
-require 'minitest/autorun'
-require 'minitest/pride'
-require 'pry'
-require './lib/card'
+require "minitest/autorun"
+require "minitest/pride"
+require "./lib/card"
 
 
-class CardTest < MiniTest::Test
+class CardTest < Minitest::Test
 
   def test_if_it_exists
     card = Card.new("5541808923795240")
@@ -32,7 +31,7 @@ class CardTest < MiniTest::Test
   def test_if_substract_works
     card = Card.new("5541808923795240")
     result = [0, 8, 2, 1, 9, 5, 3, 4, 9, 7, 0, 7, 1, 8, 5, 1]
-    assert_equal result, card.substract
+    assert_equal result, card.subtract
   end
 
   def test_if_sum_works
@@ -42,14 +41,13 @@ class CardTest < MiniTest::Test
 
   def test_if_it_is_valid?
     card = Card.new("6011004936334222")
-    assert_equal true, card.valid?
+    assert_equal "The card number is valid.", card.valid?
   end
 
   def test_if_it_works_for_amex
     card = Card.new("342804633855673")
     assert card.valid?
     card = Card.new("342801633855673")
-    refute card.valid?
+    assert_equal "Sorry the card number is not valid.", card.valid?
   end
-
 end

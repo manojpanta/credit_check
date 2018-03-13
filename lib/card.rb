@@ -5,41 +5,45 @@ class Card
   end
 
   def split
-    @number.to_i.digits
+    @number.delete(" ").to_i.digits
   end
 
   def multiply
     split.map.with_index.map do |num, index|
-      if index.odd?
-        num * 2
-      else
-        num
-      end
+      check(num, index)
     end
   end
 
-  def substract
+  def check(num, index)
+    # return num*2 if index.odd?
+    # return num
+    if index.odd?
+      num * 2
+    else
+      num
+    end
+  end
+
+  def subtract
     multiply.map do |num|
-      if num >= 10
-        num - 9
-      else
-        num
-      end
+    check_1(num)
+    end
+  end
+
+  def check_1(num)
+    if num >= 10
+      num - 9
+    else
+      num
     end
   end
 
   def sum
-    substract.sum
+    subtract.sum
   end
 
   def valid?
-    if sum % 10 == 0
-    "The number is valid"
-    else
-    "Sorry the number is not valid"
-    end
+    return "The card number is valid." if sum % 10 == 0
+    return "Sorry the card number is not valid." if sum % 10 != 0
   end
-
-
-
 end
