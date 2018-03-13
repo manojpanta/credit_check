@@ -1,4 +1,3 @@
-require 'pry'
 class Card
 
   def initialize(number)
@@ -10,21 +9,15 @@ class Card
   end
 
   def multiply
-    binding.pry
     split.map.with_index.map do |num, index|
-      if index.odd?
-        num*2
-      else
-        num
-      end
-      # check(num, index)
+      check(num, index)
     end
   end
 
-  # def check(num, index)
-  #   return num * 2 if index.odd?
-  #   return num
-  # end
+  def check(num, index)
+    return num * 2 if index.odd?
+    return num
+  end
 
   def subtract
     multiply.map do |num|
