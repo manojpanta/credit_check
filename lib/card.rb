@@ -5,11 +5,11 @@ class Card
   end
 
   def split
-    @number.delete(" ").to_i.digits
+    @number.delete(' ').to_i.digits
   end
 
   def multiply
-    split.map.with_index.map do |num, index|
+    split.map.with_index do |num, index|
       check(num, index)
     end
   end
@@ -35,7 +35,7 @@ class Card
   end
 
   def valid?
-    return "The card number is valid." if sum % 10 == 0
-    return "Sorry the card number is not valid."
+    return 'The card number is valid.' if (sum % 10).zero?
+    'Sorry the card number is not valid.'
   end
 end
