@@ -10,24 +10,23 @@ class Card
 
   def multiply
     split.map.with_index do |num, index|
-      check(num, index)
+      if index.odd?
+        num*2
+      else
+        num
+      end
     end
   end
 
-  def check(num, index)
-    return num * 2 if index.odd?
-    return num
-  end
 
   def subtract
     multiply.map do |num|
-    check_1(num)
+      if num >9
+        num-9
+      else
+        num
+      end
     end
-  end
-
-  def check_1(num)
-    return num - 9 if num >= 10
-    return num
   end
 
   def sum
